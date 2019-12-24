@@ -1,0 +1,21 @@
+route:
+  enabled: true
+  host: "cs-hello-world.apps.baloise.dev"
+  letsencrypt: true
+
+backend:
+  replicaCount: 1
+  appPort: 8080
+  image:
+    repository: docker.io/christiansiegel/hello-world
+    tag: "1.0.0"
+    pullPolicy: Always
+  service:
+    type: ClusterIP
+    port: 80
+  route:
+    enabled: true
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
