@@ -1,7 +1,6 @@
 route:
   enabled: true
   host: "cs-hello-world.apps.baloise.dev"
-  routePath: "/"
 
 backend:
   replicaCount: 1
@@ -15,7 +14,7 @@ backend:
     port: 80
   route:
     enabled: true
+    path: "/"
   nodeSelector: {}
   tolerations: []
   affinity: {}
-
