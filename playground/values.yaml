@@ -1,7 +1,7 @@
 route:
   enabled: true
   host: "cs-hello-world.apps.baloise.dev"
-  letsencrypt: true
+  routePath: "/"
 
 backend:
   replicaCount: 1
