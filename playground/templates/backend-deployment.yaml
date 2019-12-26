@@ -23,6 +23,12 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
           imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          env:
+            - name: ANSWER_TO_THE_UNIVERSE
+              valueFrom:
+                secretKeyRef:
+                  key: answer
+                  name: sealed-secrets
           ports:
             - containerPort: {{ .Values.backend.appPort }}
               protocol: TCP
