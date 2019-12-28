@@ -23,8 +23,8 @@ ubuntu:
   replicaCount: 1
   appPort: 8080
   image:
-    repository: ubuntu
-    tag: "19.10"
+    repository: docker.io/christiansiegel/ubuntu-netcat
+    tag: "latest"
     pullPolicy: Always
   service:
     type: ClusterIP
