@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "app.fullname" . }}-ubuntu
+  labels:
+    app: {{ template "app.name" . }}-ubuntu
+    chart: {{ template "app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.ubuntu.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "app.name" . }}-ubuntu
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "app.name" . }}-ubuntu
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.ubuntu.image.repository }}:{{ .Values.ubuntu.image.tag }}"
+          imagePullPolicy: {{ .Values.ubuntu.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.ubuntu.appPort }}
+              protocol: TCP
+          resources:
+{{ toYaml .Values.ubuntu.resources | indent 12 }}
+    {{- with .Values.ubuntu.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.ubuntu.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.ubuntu.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
