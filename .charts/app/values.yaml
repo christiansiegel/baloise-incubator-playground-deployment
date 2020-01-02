@@ -1,0 +1,37 @@
+route:
+  enabled: true
+  host: "cs-hello-world.apps.baloise.dev"
+
+backend:
+  replicaCount: 1
+  appPort: 8080
+  image:
+    repository: docker.io/christiansiegel/hello-world
+    tag: "UNKNOWN"
+    pullPolicy: Always
+  service:
+    type: ClusterIP
+    port: 80
+  route:
+    enabled: true
+    path: "/"
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+ubuntu:
+  replicaCount: 1
+  appPort: 8080
+  image:
+    repository: docker.io/christiansiegel/ubuntu-netcat
+    tag: "UNKNOWN"
+    pullPolicy: Always
+  service:
+    type: ClusterIP
+    port: 80
+  route:
+    enabled: true
+    path: "/"
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
