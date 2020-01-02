@@ -4,7 +4,7 @@ app:
     host: "cs-hello-world.apps.baloise.dev"
 
   backend:
-    replicaCount: 1
+    replicaCount: 2
     appPort: 8080
     image:
       repository: docker.io/christiansiegel/hello-world
