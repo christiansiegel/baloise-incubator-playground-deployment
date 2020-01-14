@@ -19,6 +19,10 @@ spec:
         app: {{ template "app.name" . }}-kaptain
         release: {{ .Release.Name }}
     spec:
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: kaptain-ssh-key-secret
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.kaptain.image.repository }}:{{ .Values.kaptain.image.tag }}"
@@ -26,6 +30,13 @@ spec:
           ports:
             - containerPort: {{ .Values.kaptain.appPort }}
               protocol: TCP
+          volumeMounts:
+          - name: secret-volume
+            readOnly: true
+            mountPath: "/etc/secret-volume"
+          env:
+            - name: SSH_PRIVATE_KEY_PATH
+              value: "/etc/secret-volume/ssh-privatekey"
           resources:
 {{ toYaml .Values.kaptain.resources | indent 12 }}
     {{- with .Values.kaptain.nodeSelector }}
