@@ -5,3 +5,5 @@ version: 1
 values:
   - backend.image.tag
   - kaptain.image.tag
+  - kaptain.test.john.foo
+  - kaptain.test.john.doe

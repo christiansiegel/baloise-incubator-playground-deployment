@@ -37,3 +37,9 @@ kaptain:
   nodeSelector: {}
   tolerations: []
   affinity: {}
+  test:
+    # some comment
+    john: # some comment
+      # some comment
+      foo: bar # some comment
+      doe: xx # some comment
