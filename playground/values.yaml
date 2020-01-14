@@ -25,7 +25,7 @@ ubuntu:
   appPort: 8080
   image:
     repository: docker.io/christiansiegel/ubuntu-netcat
-    tag: xx
+    tag: xxx
     pullPolicy: Always
   service:
     type: ClusterIP
