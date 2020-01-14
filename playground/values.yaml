@@ -1,6 +1,6 @@
 route:
   enabled: true
-  host: "cs-hello-world.apps.baloise.dev"
+  host: cs-hello-world.apps.baloise.dev
 
 backend:
   replicaCount: 2
@@ -8,14 +8,14 @@ backend:
   image:
     repository: docker.io/christiansiegel/hello-world
     # some random comment
-    tag: "1.0.0"
+    tag: 1.0.0
     pullPolicy: Always
   service:
     type: ClusterIP
     port: 80
   route:
     enabled: true
-    path: "/"
+    path: /
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -25,14 +25,14 @@ ubuntu:
   appPort: 8080
   image:
     repository: docker.io/christiansiegel/ubuntu-netcat
-    tag: "latest"
+    tag: xx
     pullPolicy: Always
   service:
     type: ClusterIP
     port: 80
   route:
     enabled: true
-    path: "/"
+    path: /
   nodeSelector: {}
   tolerations: []
   affinity: {}
