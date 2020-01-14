@@ -20,12 +20,13 @@ backend:
   tolerations: []
   affinity: {}
 
-ubuntu:
+kaptain:
+  host: cs-kaptain.apps.baloise.dev
   replicaCount: 1
   appPort: 8080
   image:
-    repository: docker.io/christiansiegel/ubuntu-netcat
-    tag: xxx
+    repository: docker.io/christiansiegel/kaptain
+    tag: latest
     pullPolicy: Always
   service:
     type: ClusterIP

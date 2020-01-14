@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "app.fullname" . }}-kaptain
+  labels:
+    app: {{ template "app.name" . }}-kaptain
+    chart: {{ template "app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.kaptain.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "app.name" . }}-kaptain
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "app.name" . }}-kaptain
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.kaptain.image.repository }}:{{ .Values.kaptain.image.tag }}"
+          imagePullPolicy: {{ .Values.kaptain.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.kaptain.appPort }}
+              protocol: TCP
+          resources:
+{{ toYaml .Values.kaptain.resources | indent 12 }}
+    {{- with .Values.kaptain.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.kaptain.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.kaptain.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

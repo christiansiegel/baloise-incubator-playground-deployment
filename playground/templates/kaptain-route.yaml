@@ -1,0 +1,30 @@
+{{- $fullName := include "app.fullname" . -}}
+{{- $routePath := .Values.kaptain.route.path -}}
+{{- $host := .Values.kaptain.host -}}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+{{- if .Values.route.letsencrypt }}
+  annotations:
+    kubernetes.io/tls-acme: "true"
+{{- end }}
+  labels:
+    app: {{ template "app.name" . }}-kaptain
+    chart: {{ template "app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  name: {{ $fullName }}-kaptain
+spec:
+  host: {{ $host }}
+  path: {{ $routePath }}
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: {{ template "app.fullname" . }}-kaptain
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+    - routerName: router
