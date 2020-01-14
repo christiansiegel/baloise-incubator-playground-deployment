@@ -3,5 +3,5 @@ version: 1
 
 # only those values can be changed by kaptain:
 values:
-  - app.backend.image.tag
-  - app.ubuntu.image.tag
+  - backend.image.tag
+  - ubuntu.image.tag
