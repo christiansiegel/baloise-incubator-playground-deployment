@@ -41,5 +41,5 @@ kaptain:
     # some comment
     john: # some comment
       # some comment
-      foo: bar # some comment
+      foo: bla # some comment
       doe: xx # some comment
