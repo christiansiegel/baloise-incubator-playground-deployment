@@ -1,5 +1,5 @@
 # kaptain configuration
-version: 4
+version: 5
 
 # only those values can be changed by kaptain:
 values:
