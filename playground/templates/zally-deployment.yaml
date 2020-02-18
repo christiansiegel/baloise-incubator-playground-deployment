@@ -34,21 +34,5 @@ spec:
           ports:
             - containerPort: 8000
               protocol: TCP
-            - name: management-port
-              containerPort: 7979
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: management-port
-            periodSeconds: 5
-            timeoutSeconds: 2
-            failureThreshold: 10
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: management-port
-            periodSeconds: 5
-            timeoutSeconds: 2
-            failureThreshold: 10
+
 
