@@ -1,9 +1,0 @@
-# kaptain configuration
-version: 5
-
-# only those values can be changed by kaptain:
-values:
-- backend.image.tag
-- kaptain.image.tag
-- kaptain.test.john.foo
-- kaptain.test.john.doe

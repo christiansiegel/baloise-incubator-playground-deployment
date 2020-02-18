@@ -19,27 +19,3 @@ backend:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-
-kaptain:
-  host: cs-kaptain.apps.baloise.dev
-  replicaCount: 1
-  appPort: 8080
-  image:
-    repository: docker.io/christiansiegel/kaptain
-    tag: latest
-    pullPolicy: Always
-  service:
-    type: ClusterIP
-    port: 80
-  route:
-    enabled: true
-    path: /
-  nodeSelector: {}
-  tolerations: []
-  affinity: {}
-  test:
-    # some comment
-    john: # some comment
-      # some comment
-      foo: lkasjxdf4 # some comment
-      doe: xx # some comment
