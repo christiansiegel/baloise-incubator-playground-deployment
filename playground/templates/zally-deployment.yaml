@@ -36,18 +36,5 @@ spec:
               protocol: TCP
             - containerPort: 7979
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 7979
-            periodSeconds: 5
-            timeoutSeconds: 2
-            failureThreshold: 10
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 7979
-            periodSeconds: 5
-            timeoutSeconds: 2
-            failureThreshold: 10
+          
 
