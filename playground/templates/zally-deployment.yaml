@@ -9,6 +9,7 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.zally.replicaCount }}
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: zally
