@@ -19,3 +19,11 @@ backend:
   nodeSelector: {}
   tolerations: []
   affinity: {}
+
+zally:
+  replicaCount: 1
+  image:
+    repository: christiansiegel/zally-server
+    tag: 490ab4c5
+  route: 
+    host: zally.apps.baloise.dev

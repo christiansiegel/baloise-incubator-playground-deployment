@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zally
+  labels:
+    app: zally
+    chart: {{ template "app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.zally.replicaCount }}
+  selector:
+    matchLabels:
+      app: zally
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: zally
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.zally.image.repository }}:{{ .Values.zally.image.tag }}"
+          imagePullPolicy: Always
+          env:
+            - name: ANSWER_TO_THE_UNIVERSE
+              valueFrom:
+                secretKeyRef:
+                  key: answer
+                  name: sealed-secrets
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+
