@@ -42,7 +42,7 @@ spec:
           value: /
         image: argoproj/argoui:v2.4.3
         name: argo-ui
-      serviceAccountName: argo-ui
+      #serviceAccountName: argo-ui
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -67,4 +67,4 @@ spec:
         - workflow-controller
         image: argoproj/workflow-controller:v2.4.3
         name: workflow-controller
-      serviceAccountName: argo
+      #serviceAccountName: argo
