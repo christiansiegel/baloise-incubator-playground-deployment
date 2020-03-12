@@ -1,4 +1,4 @@
 frontend:
-  tag: bla
+  tag: 5
 backend:
-  tag: foo
+  tag: 5
