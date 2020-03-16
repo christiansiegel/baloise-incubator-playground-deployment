@@ -38,4 +38,4 @@ spec:
       type: LoadBalancer
   subscribers:
     http:
-      - "http://webhook-sensor.argo-events.svc:9300/"
+      - "http://webhook-sensor.playground.svc:9300/"
