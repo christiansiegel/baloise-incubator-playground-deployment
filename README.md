@@ -1,4 +1,5 @@
 [![App Status](https://argocd.baloise.dev/api/badge?name=batchtest)](https://argocd.baloise.dev/applications/batchtest)
+
 [![App Status](https://argocd.baloise.dev/api/badge?name=zally)](https://argocd.baloise.dev/applications/zally)
 
 # Baloise Incubator Playground Deployment

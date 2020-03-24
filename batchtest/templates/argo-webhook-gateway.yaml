@@ -40,4 +40,4 @@ spec:
       type: LoadBalancer
   subscribers:
     http:
-      - "http://webhook-sensor.playground.svc:9300/"
+      - "http://webhook-sensor.batchtest.svc:9300/"
