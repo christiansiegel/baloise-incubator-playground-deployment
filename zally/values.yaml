@@ -4,7 +4,7 @@ generic:
     tag: 490ab4c5
   ingress:
     enabled: true
-    host: zally.apps.baloise.dev
+    host: zally.apps.origin.baloise.dev
   env:
   - name: SPRING_PROFILES_ACTIVE
     value: dev
