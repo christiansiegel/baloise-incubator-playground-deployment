@@ -2,6 +2,9 @@ generic:
   image:
     repository: christiansiegel/zally-server
     tag: 490ab4c5
+  ports:
+    http:
+      containerPort: 8000
   ingress:
     enabled: true
     host: zally.apps.origin.baloise.dev
