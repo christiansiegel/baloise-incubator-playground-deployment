@@ -1,8 +1,14 @@
-
-zally:
-  replicaCount: 1
+generic:
   image:
     repository: christiansiegel/zally-server
     tag: 490ab4c5
-  route: 
-    host: zally.apps.baloise.dev
+  ingress:
+    enabled: true
+    host: zally.apps.origin.baloise.dev
+  env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: dev
+  - name: MANAGEMENT_PORT
+    value: '7979'
+  - name: TOKEN_INFO_URI
+    value: https://url.not.set
