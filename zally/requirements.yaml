@@ -3,3 +3,7 @@ dependencies:
     version: 0.3.0
     repository: https://registry.baloise.dev/chartrepo/library
     alias: server
+  - name: generic-chart
+    version: 0.3.0
+    repository: https://registry.baloise.dev/chartrepo/library
+    alias: ui
