@@ -1,4 +1,4 @@
-generic:
+server:
   image:
     repository: christiansiegel/zally-server
     tag: 490ab4c5
