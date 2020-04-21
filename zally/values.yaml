@@ -1,7 +1,7 @@
 generic:
   image:
     repository: christiansiegel/zally-server
-    tag: 490ab4c5
+    tag: latest
   ports:
     http:
       containerPort: 8000
@@ -14,12 +14,12 @@ generic:
   - name: MANAGEMENT_PORT
     value: '7979'
   - name: TOKEN_INFO_URI
-    value: 'https://url.not.set'
+    value: https://url.not.set
 
 ui:
   image:
     repository: christiansiegel/zally-ui
-    tag: '0.1.1'
+    tag: 0.1.1
   ingress:
     enabled: true
     host: zally-ui.apps.origin.baloise.dev
