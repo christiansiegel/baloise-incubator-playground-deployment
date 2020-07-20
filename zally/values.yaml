@@ -1,13 +1,12 @@
-generic:
+server:
   image:
     repository: christiansiegel/zally-server
     tag: 490ab4c5
-  ports:
+  network:
     http:
-      containerPort: 8000
-  ingress:
-    enabled: true
-    host: zally.apps.origin.baloise.dev
+      servicePort: 8080
+      ingress:
+        host: zally.apps.baloise.dev
   env:
   - name: SPRING_PROFILES_ACTIVE
     value: dev
@@ -16,13 +15,15 @@ generic:
   - name: TOKEN_INFO_URI
     value: https://url.not.set
 
-ui:
+frontend:
   image:
     repository: christiansiegel/zally-ui
     tag: 0.1.1
-  ingress:
-    enabled: true
-    host: zally-ui.apps.origin.baloise.dev
+  network:
+    http:
+      servicePort: 8080
+      ingress:
+        host: zally-ui.apps.baloise.dev
   env:
   - name: ZALLY_API_URL
-    value: https://zally.apps.origin.baloise.dev
+    value: https://zally.apps.baloise.dev
