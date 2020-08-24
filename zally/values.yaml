@@ -1,4 +1,5 @@
 server:
+  replicaCount: 0
   image:
     repository: christiansiegel/zally-server
     tag: 490ab4c5
@@ -16,6 +17,7 @@ server:
     value: https://url.not.set
 
 frontend:
+  replicaCount: 0
   image:
     repository: christiansiegel/zally-ui
     tag: 0.1.1
