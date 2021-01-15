@@ -8,16 +8,6 @@ server:
       servicePort: 8080
       ingress:
         host: zally.apps.baloise.dev
-    mgmt:
-      servicePort: 7979
-  readinessProbe:
-    httpGet:
-      path: /health
-      port: mgmt
-  livenessProbe:
-    httpGet:
-      path: /health
-      port: mgmt
   env:
   - name: SPRING_PROFILES_ACTIVE
     value: dev
