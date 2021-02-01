@@ -1,3 +1,6 @@
 open:
   x:
     day: foobar # <- tada
+    test:
+    - foo: bar
+    - bar: foo
